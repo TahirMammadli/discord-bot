@@ -5,6 +5,7 @@ import BotMessage from "./BotMessage.js"
 import { Client, GatewayIntentBits } from "discord.js";
 import dotenv from "dotenv";
 dotenv.config();
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -74,9 +75,7 @@ client.on("messageCreate", (message) => {
 
 client.login(process.env.TOKEN);
 
-await mongoose.connect(
-  "mongodb+srv://m001-student:runthejewels77@sandbox.2pcwm.mongodb.net/discord-bot"
-);
+await mongoose.connect(process.env.MONGO_URI);
 
 
 /*
